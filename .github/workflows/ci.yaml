@@ -1,0 +1,29 @@
+name: "Deployment"
+
+on:
+  push:
+    branches:
+      - charts-sources
+
+jobs:
+  compress-chart:
+    runs-on: ubuntu-latest
+    if:  github.event_name == 'push' || github.event.pull_request.base.ref == 'charts-sources'
+    env:
+      BASE_WORKING_DIR: ./
+    defaults:
+      run:
+        working-directory: ${{ env.BASE_WORKING_DIR }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Terraform plan
+        run: |
+          ls | grep bb-
+
+  push-chart-gz:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    env:
+      BASE_WORKING_DIR: ./src/environments/dev
+    steps:
+      - uses: actions/checkout@v2
