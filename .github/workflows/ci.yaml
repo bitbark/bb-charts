@@ -18,7 +18,12 @@ jobs:
       - uses: actions/checkout@v2
       - name: Terraform plan
         run: |
-          ls | grep bb-
+          array=($(ls | grep bb-))
+          for i in "${array[@]}"
+          do
+             echo "$i"
+             # or do whatever with individual element of the array
+          done
 
   push-chart-gz:
     runs-on: ubuntu-latest
