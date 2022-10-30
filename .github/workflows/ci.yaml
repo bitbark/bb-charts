@@ -29,6 +29,7 @@ jobs:
             do
               ls
               zip -qq -r "${a}.zip" $a
+              ls
             done
             cd ..
             # or do whatever with individual element of the array
