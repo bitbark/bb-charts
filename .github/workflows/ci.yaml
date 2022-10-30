@@ -28,7 +28,7 @@ jobs:
             for a in "${array2[@]}"
             do
               ls
-              zip -qq -r "${a}.zip" $a
+              zip -qq -r "${i}-${a}.zip" $a
               ls
             done
             cd ..
