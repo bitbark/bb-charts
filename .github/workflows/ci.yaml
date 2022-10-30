@@ -21,9 +21,17 @@ jobs:
           array=($(ls | grep bb-))
           for i in "${array[@]}"
           do
-             echo "$i"
-             # or do whatever with individual element of the array
+            echo "$i"
+            cd $i
+            array2=$(ls)
+            for i in "${array2[@]}"
+            do
+                zip -qq -r "${i}.zip" $i
+            done
+            cd ..
+            # or do whatever with individual element of the array
           done
+          ls
 
   push-chart-gz:
     runs-on: ubuntu-latest
