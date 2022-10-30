@@ -27,7 +27,8 @@ jobs:
             array2=$(ls)
             for a in "${array2[@]}"
             do
-                zip -qq -r "${a}.zip" $a
+              ls
+              zip -qq -r "${a}.zip" $a
             done
             cd ..
             # or do whatever with individual element of the array
