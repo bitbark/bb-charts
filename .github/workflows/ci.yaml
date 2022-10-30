@@ -50,7 +50,7 @@ jobs:
             echo "$i"
             cd $i
             ls
-            array2=($(ls | grep bb-))
+            array2=($(ls | grep tgz))
             for a in "${array2[@]}"
             do
               ls
