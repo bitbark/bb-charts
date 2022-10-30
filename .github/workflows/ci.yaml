@@ -28,7 +28,7 @@ jobs:
             for a in "${array2[@]}"
             do
               ls
-              zip -qq -r "${i}-${a}.zip" $a
+              zip -qq -r "${i}-${a}.tgz" $a
               ls
             done
             cd ..
@@ -42,3 +42,29 @@ jobs:
       BASE_WORKING_DIR: ./src/environments/dev
     steps:
       - uses: actions/checkout@v2
+      - name: Push Code
+        run: |
+          array=($(ls | grep bb-))
+          for i in "${array[@]}"
+          do
+            echo "$i"
+            cd $i
+            ls
+            array2=($(ls | grep bb-))
+            for a in "${array2[@]}"
+            do
+              ls
+              zip -qq -r "${i}-${a}.tgz" $a
+              git config --global user.email "bitbark.os@gmail.com"
+              git config --global user.name "Bitbark Bot"
+              git add "${i}-${a}.tgz"
+              git commit -m "Update chart with ${i}-${a}.tgz"
+              git push
+              ls
+            done
+            cd ..
+            # or do whatever with individual element of the array
+          done
+          
+          
+
