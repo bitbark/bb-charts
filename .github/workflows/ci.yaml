@@ -22,8 +22,8 @@ jobs:
           for i in "${array[@]}"
           do
             echo "$i"
-            ls
             cd $i
+            ls
             array2=$(ls)
             for i in "${array2[@]}"
             do
