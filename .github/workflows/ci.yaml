@@ -31,7 +31,6 @@ jobs:
             cd ..
             # or do whatever with individual element of the array
           done
-          ls
 
   push-chart-gz:
     runs-on: ubuntu-latest
