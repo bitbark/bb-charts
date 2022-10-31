@@ -30,6 +30,7 @@ jobs:
               zip -qq -r "${i}-${a}.tgz" $a/*
               git config --global user.email "bitbark.os@gmail.com"
               git config --global user.name "Bitbark Bot"
+              git fetch
               git checkout charts
               git add "${i}-${a}.tgz"
               git commit -m "Update chart with ${i}-${a}.tgz"
