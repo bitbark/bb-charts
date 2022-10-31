@@ -27,7 +27,7 @@ jobs:
             array2=$(ls)
             for a in "${array2[@]}"
             do
-              zip -qq -r "${i}-${a}.tgz" $a
+              zip -qq -r "${i}-${a}.tgz" $a/*
               git config --global user.email "bitbark.os@gmail.com"
               git config --global user.name "Bitbark Bot"
               git add "${i}-${a}.tgz"
