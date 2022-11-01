@@ -32,7 +32,7 @@ jobs:
               git config --global user.name "Bitbark Bot"
               git fetch
               git checkout charts
-              git add "${i}-${a}.tgz"
+              git add ~/"${i}-${a}.tgz"
               git commit -m "Update chart with ${i}-${a}.tgz"
               git push
             done
