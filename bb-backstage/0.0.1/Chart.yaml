@@ -3,5 +3,4 @@ version: 0.1.0
 name: bb-backstage
 description: A Helm chart for Kubernetes
 type: application
-
 appVersion: "1.16.0"
