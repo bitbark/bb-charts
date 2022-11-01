@@ -36,4 +36,4 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: my-artifact
-          path: .
+          path: /home/runner/work/bb-charts/bb-charts/bb-backstage/
