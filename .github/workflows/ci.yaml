@@ -16,7 +16,7 @@ jobs:
         working-directory: ${{ env.BASE_WORKING_DIR }}
     steps:
       - uses: actions/checkout@v2
-      - name: zip compress
+      - name: Terraform plan
         run: |
           array=($(ls | grep bb-))
           for i in "${array[@]}"
@@ -28,12 +28,16 @@ jobs:
             for a in "${array2[@]}"
             do
               zip -qq -r "${i}-${a}.tgz" $a/*
-              pwd          
+              cp "${i}-${a}.tgz" ../
+              cd ..            
+              git config --global user.email "bitbark.os@gmail.com"
+              git config --global user.name "Bitbark Bot"
+              git fetch
+              git checkout charts
+              git add "${i}-${a}.tgz"
+              git commit -m "Update chart with ${i}-${a}.tgz"
+              git push
             done
             cd ..
             # or do whatever with individual element of the array
           done
-      - uses: actions/upload-artifact@v2
-        with:
-          name: my-artifact
-          path: /home/runner/work/bb-charts/bb-charts/bb-backstage/bb-backstage-0.0.1.tgz
