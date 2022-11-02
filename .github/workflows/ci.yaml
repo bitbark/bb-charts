@@ -16,7 +16,7 @@ jobs:
         working-directory: ${{ env.BASE_WORKING_DIR }}
     steps:
       - uses: actions/checkout@v2
-      - name: Terraform plan
+      - name: Compress and upload to artifact
         run: |
           array=($(ls | grep bb-))
           for i in "${array[@]}"
@@ -30,10 +30,8 @@ jobs:
               zip -qq -r "${i}-${a}.tgz" $a/*
               zip -qq -r "${i}-${a}-2.tgz" $a/*
               cp *.tgz ../
-             
             done
             cd ..
-            # or do whatever with individual element of the array
           done
       - uses: actions/upload-artifact@v2
         with:
@@ -49,21 +47,14 @@ jobs:
       run:
         working-directory: ${{ env.BASE_WORKING_DIR }}
     steps:
-      - name: Download math result for job 2
+      - name: Download artifacts
         uses: actions/download-artifact@v2
-      - name: Terraform plan
+      - name: Copy tgz to a temp directory
         run: |
-          ls artifacts
-          ls
-          pwd
           cp artifacts/* ../
       - uses: actions/checkout@v2
-        with:
-          clean: false
-      - name: Terraform plan
+      - name: Git push
         run: |
-           ls ../
-           pwd
            git config --global user.email "bitbark.os@gmail.com"
            git config --global user.name "Bitbark Bot"
            git fetch
