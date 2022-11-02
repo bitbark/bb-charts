@@ -54,15 +54,16 @@ jobs:
       - name: Terraform plan
         run: |
           ls artifacts
+          ls
           pwd        
       - uses: actions/checkout@v2
       - name: Terraform plan
         run: |
-           cp artifacts/*.tgz bb-charts
            git config --global user.email "bitbark.os@gmail.com"
            git config --global user.name "Bitbark Bot"
            git fetch
            git checkout charts
+           cp artifacts/* bb-charts/
            git add *.tgz
            git commit -m "Update chart with tgz"
            git push
