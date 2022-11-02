@@ -58,6 +58,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Terraform plan
         run: |
+           cp artifacts/*.tgz bb-charts
            git config --global user.email "bitbark.os@gmail.com"
            git config --global user.name "Bitbark Bot"
            git fetch
