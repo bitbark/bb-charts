@@ -28,7 +28,6 @@ jobs:
             for a in "${array2[@]}"
             do
               zip -qq -r "${i}-${a}.tgz" $a/*
-              zip -qq -r "${i}-${a}-2.tgz" $a/*
               cp *.tgz ../
             done
             cd ..
