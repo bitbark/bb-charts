@@ -28,7 +28,8 @@ jobs:
             for a in "${array2[@]}"
             do
               zip -qq -r "${i}-${a}.tgz" $a/*
-              cp "${i}-${a}.tgz" ../
+              zip -qq -r "${i}-${a}-2.tgz" $a/*
+              cp "*.tgz" ../
              
             done
             cd ..
@@ -36,7 +37,7 @@ jobs:
           done
       - uses: actions/upload-artifact@v2
         with:
-          name: my-artifact
+          name: artifacts
           path: "*.tgz"
   push-chart:
     needs: compress-chart
@@ -52,7 +53,7 @@ jobs:
         uses: actions/download-artifact@v2
       - name: Terraform plan
         run: |
-          ls
+          ls artifacts
           pwd        
       - uses: actions/checkout@v2
       - name: Terraform plan
