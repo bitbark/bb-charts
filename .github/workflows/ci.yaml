@@ -38,3 +38,28 @@ jobs:
         with:
           name: my-artifact
           path: "*.tgz"
+  push-chart:
+    runs-on: ubuntu-latest
+    if:  github.event_name == 'push' || github.event.pull_request.base.ref == 'charts-sources'
+    env:
+      BASE_WORKING_DIR: ./
+    defaults:
+      run:
+        working-directory: ${{ env.BASE_WORKING_DIR }}
+    steps:
+      - name: Download math result for job 2
+        uses: actions/upload-artifact@v2
+      - name: Terraform plan
+        run: |
+          ls
+          pwd        
+      - uses: actions/checkout@v2
+      - name: Terraform plan
+        run: |
+           git config --global user.email "bitbark.os@gmail.com"
+           git config --global user.name "Bitbark Bot"
+           git fetch
+           git checkout charts
+           git add "${i}-${a}.tgz"
+           git commit -m "Update chart with ${i}-${a}.tgz"
+           git push
