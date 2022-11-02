@@ -29,16 +29,12 @@ jobs:
             do
               zip -qq -r "${i}-${a}.tgz" $a/*
               cp "${i}-${a}.tgz" ../
-              cd ..   
-              git config --global user.email "bitbark.os@gmail.com"
-              git config --global user.name "Bitbark Bot"
-              git fetch
-              git checkout charts
-              git add "${i}-${a}.tgz"
-              git commit -m "Update chart with ${i}-${a}.tgz"
-              git push
-              git checkout charts
+             
             done
             cd ..
             # or do whatever with individual element of the array
           done
+      - uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: "*.tgz"
