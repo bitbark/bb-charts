@@ -68,7 +68,7 @@ jobs:
            git config --global user.name "Bitbark Bot"
            git fetch
            git checkout charts
-           cp ../*.tgz bb-charts/
+           cp ../*.tgz .
            git add *.tgz
            git commit -m "Update chart with tgz"
            git push
