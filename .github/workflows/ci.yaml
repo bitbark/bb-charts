@@ -59,6 +59,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Terraform plan
         run: |
+           ls
            git config --global user.email "bitbark.os@gmail.com"
            git config --global user.name "Bitbark Bot"
            git fetch
