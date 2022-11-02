@@ -39,6 +39,7 @@ jobs:
           name: my-artifact
           path: "*.tgz"
   push-chart:
+    needs: compress-chart
     runs-on: ubuntu-latest
     if:  github.event_name == 'push' || github.event.pull_request.base.ref == 'charts-sources'
     env:
