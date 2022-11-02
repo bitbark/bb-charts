@@ -55,7 +55,8 @@ jobs:
         run: |
           ls artifacts
           ls
-          pwd        
+          pwd
+          cp artifacts/* ../
       - uses: actions/checkout@v2
         with:
           clean: false
@@ -67,7 +68,7 @@ jobs:
            git config --global user.name "Bitbark Bot"
            git fetch
            git checkout charts
-           cp ../artifacts/* bb-charts/
+           cp ../*.tgz bb-charts/
            git add *.tgz
            git commit -m "Update chart with tgz"
            git push
