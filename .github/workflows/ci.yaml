@@ -57,6 +57,8 @@ jobs:
           ls
           pwd        
       - uses: actions/checkout@v2
+        with:
+          clean: false
       - name: Terraform plan
         run: |
            ls ../
