@@ -37,6 +37,7 @@ jobs:
               git add "${i}-${a}.tgz"
               git commit -m "Update chart with ${i}-${a}.tgz"
               git push
+              cd bb-charts
               git checkout charts
               cd $i
             done
