@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-clusterissuer-{{ .Values.namespace}}
+    kubernetes.io/ingress.allow-http: "true"
+    nginx.ingress.kubernetes.io/cors-allow-methods: PUT, GET, POST, DELETE, OPTIONS
+    nginx.ingress.kubernetes.io/cors-allow-origin: http://localhost:3000
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+  name: backstage
+  namespace: {{ .Values.namespace}}
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: {{ .Values.ingress.host}}
+      http:
+        paths:
+          - backend:
+              service:
+                name: backstage
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
+  tls:
+    - hosts:
+        - {{ .Values.ingress.host}}
+      secretName: letsencrypt-secret-{{ .Values.namespace}}

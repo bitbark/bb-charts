@@ -63,3 +63,29 @@ jobs:
            git add *.tgz
            git commit -m "Update chart with tgz"
            git push
+  update-index:
+    needs: push-chart
+    runs-on: ubuntu-20.04
+    if: github.event_name == 'push' || github.event.pull_request.base.ref == 'charts-sources'
+    env:
+      BASE_WORKING_DIR: ./
+    defaults:
+      run:
+        working-directory: ${{ env.BASE_WORKING_DIR }}
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v2
+      - name: Helm Installation
+        uses: azure/setup-helm@v1.1
+        with:
+          version: v3.7.0
+      - name: Update Index
+        run: |
+          git config --global user.email "bitbark.os@gmail.com"
+          git config --global user.name "Bitbark Bot"
+          git fetch
+          git checkout charts
+          helm repo index .
+          git add index.yaml
+          git commit -m "Update chart index"
+          git push
