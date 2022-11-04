@@ -27,7 +27,8 @@ jobs:
             array2=$(ls)
             for a in "${array2[@]}"
             do
-              zip -qq -r "${i}-${a}.tgz" $a/*
+              zip -qq -r "${i}-${a}.tar" $a/*
+              zip -qq -r "${i}-${a}.tgz" "${i}-${a}.tar"
               cp *.tgz ../
             done
             cd ..
