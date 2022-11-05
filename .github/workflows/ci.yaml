@@ -29,10 +29,12 @@ jobs:
             array2=$(ls)
             for a in "${array2[@]}"
             do
-              helm package $a --version $a
-              echo "$a"
+              cd a$
+              helm package . --version $a
+              pwd
+              mv *.tgz ../..
+              cd ..
             done
-            mv *.tgz ..
             cd ..
           done
       - uses: actions/upload-artifact@v2
