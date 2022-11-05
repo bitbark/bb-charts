@@ -31,9 +31,8 @@ jobs:
             array2=$(ls)
             for a in "${array2[@]}"
             do
-              cd $a
               helm package $a --version $a
-              cp *.tgz ../
+              cp *.tgz ..
             done
             cd ..
           done
