@@ -16,6 +16,10 @@ jobs:
         working-directory: ${{ env.BASE_WORKING_DIR }}
     steps:
       - uses: actions/checkout@v2
+      - name: Helm Installation
+        uses: azure/setup-helm@v1.1
+        with:
+          version: v3.7.0
       - name: Compress and upload to artifact
         run: |
           array=($(ls | grep bb-))
@@ -27,8 +31,7 @@ jobs:
             array2=$(ls)
             for a in "${array2[@]}"
             do
-              zip -qq -r "${i}-${a}.tar" $a/*
-              zip -qq -r "${i}-${a}.tgz" "${i}-${a}.tar"
+              helm package $a --version "$a"
               cp *.tgz ../
             done
             cd ..
