@@ -3,12 +3,12 @@ entries:
   bb-backstage:
   - apiVersion: v2
     appVersion: 0.0.2
-    created: "2022-11-05T20:44:09.76811737Z"
+    created: "2022-11-05T22:58:09.95857888Z"
     description: A Helm chart for Kubernetes
-    digest: c0c554dc67e0a26912ceff95f113dc339d9f7c94845f29e7e75882743a2461f6
+    digest: 701a6f32853c7a2546a0872e40d20aa9e8e9ddd7af77e8465d1805a80e095f61
     name: bb-backstage
     type: application
     urls:
     - bb-backstage-0.0.1.tgz
     version: 0.0.1
-generated: "2022-11-05T20:44:09.76718866Z"
+generated: "2022-11-05T22:58:09.958043473Z"
