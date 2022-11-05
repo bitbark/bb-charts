@@ -25,14 +25,12 @@ jobs:
           array=($(ls | grep bb-))
           for i in "${array[@]}"
           do
-            echo "$i"
             cd $i
-            ls
             array2=$(ls)
             for a in "${array2[@]}"
             do
               helm package $a --version $a
-              
+              echo "$a"
             done
             cp *.tgz ..
             cd ..
