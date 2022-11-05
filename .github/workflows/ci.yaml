@@ -32,7 +32,7 @@ jobs:
               helm package $a --version $a
               echo "$a"
             done
-            cp *.tgz ..
+            mv *.tgz ..
             cd ..
           done
       - uses: actions/upload-artifact@v2
