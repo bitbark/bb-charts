@@ -32,8 +32,9 @@ jobs:
             for a in "${array2[@]}"
             do
               helm package $a --version $a
-              cp *.tgz ..
+              
             done
+            cp *.tgz ..
             cd ..
           done
       - uses: actions/upload-artifact@v2
