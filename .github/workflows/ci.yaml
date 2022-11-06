@@ -1,4 +1,4 @@
-name: "Deployment"
+ame: "Deployment"
 
 on:
   push:
@@ -29,10 +29,10 @@ jobs:
             array2=("0.0.1" "0.0.2")
             for a in "${array2[@]}"
             do
-              echo $a
               helm package $a --version $a
+              echo "$a"
             done
-            mv *.tgz ../..
+            mv *.tgz ..
             cd ..
           done
       - uses: actions/upload-artifact@v2
