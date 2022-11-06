@@ -29,12 +29,9 @@ jobs:
             array2=$(ls)
             for a in "${array2[@]}"
             do
-              cd "$a"
-              helm package . --version $a
-              pwd
-              mv *.tgz ../..
-              cd ..
+              helm package $a --version $a
             done
+            mv *.tgz ../..
             cd ..
           done
       - uses: actions/upload-artifact@v2
