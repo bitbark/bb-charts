@@ -26,7 +26,7 @@ jobs:
           for i in "${array[@]}"
           do
             cd $i
-            array2=$(ls)
+            array2=("0.0.1" "0.0.2")
             for a in "${array2[@]}"
             do
               echo $a
