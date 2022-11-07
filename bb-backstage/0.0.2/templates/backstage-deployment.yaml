@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: backstage
-          image: bitbark/backstage:1.0.0
+          image: {{ .Values.deployment.image.name }}:{{ .Values.deployment.image.tag }}
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
