@@ -26,7 +26,7 @@ jobs:
           for i in "${array[@]}"
           do
             cd $i
-            array2=("0.0.1" "0.0.2")
+            array2=("0.0.1" "0.0.2" "0.0.3-do")
             for a in "${array2[@]}"
             do
               helm package $a --version $a

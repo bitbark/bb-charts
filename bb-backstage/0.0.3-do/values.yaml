@@ -1,0 +1,19 @@
+namespace: ""
+deployment:
+  image:
+    name: ""
+    tag: ""
+ingress:
+  host: ""
+crossPlane:
+  name: ""
+  loadBalancerIp: ""
+  zoneId: ""
+redcred:
+  dockerconfigjson: ""
+github_token: ""
+acm:
+  email: ""
+postgres:
+  user: ""
+  pass: ""
