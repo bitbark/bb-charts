@@ -9,8 +9,8 @@ crossPlane:
   name: ""
   loadBalancerIp: ""
   zoneId: ""
-regcred:
-  dockerconfigjson: ""
+regCred:
+  dockerConfigJson: ""
 github_token: ""
 acm:
   email: ""
