@@ -22,15 +22,15 @@ jobs:
           version: v3.7.0
       - name: Compress and upload to artifact
         run: |
-          array=($(ls | grep bb-))
+          array=($(ls -d */ | grep bb-))
           for i in "${array[@]}"
           do
-            cd $i
-            array2=("0.0.1" "0.0.2" "0.0.3-do")
+            cd "${i}"
+            array2=($(ls -d */))
             for a in "${array2[@]}"
             do
               helm package $a --version $a
-              echo "$a"
+              echo "${a}"
             done
             mv *.tgz ..
             cd ..
