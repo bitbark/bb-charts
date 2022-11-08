@@ -29,7 +29,7 @@ jobs:
             array2=($(ls -d */))
             for a in "${array2[@]}"
             do
-              helm package $a --version $a
+              #helm package $a --version $a
               echo "${a}"
             done
             mv *.tgz ..
