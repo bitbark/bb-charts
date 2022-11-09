@@ -29,7 +29,7 @@ jobs:
             array2=($(ls -d */))
             for a in "${array2[@]}"
             do
-              b=echo $a | awk '{ print substr( $0, 1, length($0)-1 ) }'
+              b=(echo $a | awk '{ print substr( $0, 1, length($0)-1 ) }')
               echo "${b}"
               helm package $b --version $b
               echo "${b}"
