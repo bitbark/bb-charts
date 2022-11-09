@@ -29,8 +29,9 @@ jobs:
             array2=($(ls -d */))
             for a in "${array2[@]}"
             do
-              #helm package $a --version $a
-              echo "${a}"
+              b=echo $a | awk '{ print substr( $0, 1, length($0)-1 ) }'
+              helm package $b --version $b
+              echo "${b}"
             done
             mv *.tgz ..
             cd ..
