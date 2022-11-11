@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bitbark-backend
+  namespace: {{ .Values.namespace }}
+spec:
+  selector:
+    app: bitbark-backend
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080

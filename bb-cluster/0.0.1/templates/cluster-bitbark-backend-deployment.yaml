@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bitbark-backend
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bitbark-backend
+  template:
+    metadata:
+      labels:
+        app: bitbark-backend
+    spec:
+      containers:
+        - name: bitbark-backend
+          image: {{ .Values.deployment.image.name }}:{{ .Values.deployment.image.tag }}
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+          envFrom:
+            - secretRef:
+                name: bitbark-backend-secrets
+      imagePullSecrets:
+        - name: regcred

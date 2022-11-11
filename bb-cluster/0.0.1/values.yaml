@@ -1,2 +1,46 @@
+namespace: ""
 regCred:
   dockerConfigJson: ""
+deployment:
+  image:
+    name: ""
+    tag: ""
+secret:
+  spring:
+    datasource:
+      username: ""
+      password: ""
+      url: ""
+      driver-class-name: ""
+    jpa:
+      hibernate:
+        ddl-auto: ""
+  server:
+    session:
+      timeout: ""
+    error:
+      whitelabel:
+        enabled: ""
+  logging:
+    level:
+      org:
+        springframework: ""
+        springframework_web: ""
+        hibernate: ""
+      redis: ""
+      netgloo: ""
+  sentry:
+    dsn: ""
+    environment:
+  aws:
+    accessKey: ""
+    secretKey: ""
+    region: ""
+    sqsQueueUrl: ""
+  google:
+    baseUrl: ""
+ingress:
+    host: ""
+clusterissuer:
+  acm:
+    email: ""
