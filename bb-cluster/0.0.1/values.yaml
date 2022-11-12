@@ -44,3 +44,7 @@ ingress:
 clusterissuer:
   acm:
     email: ""
+crossPlane:
+  name: ""
+  loadBalancerIp: ""
+  zoneId: ""
