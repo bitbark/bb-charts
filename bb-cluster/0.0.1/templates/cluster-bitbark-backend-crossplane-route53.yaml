@@ -1,0 +1,14 @@
+apiVersion: route53.aws.crossplane.io/v1alpha1
+kind: ResourceRecordSet
+metadata:
+  name: {{ .Values.crossPlane.name }}
+  namespace: {{ .Values.namespace }}
+spec:
+  providerConfigRef:
+    name: default
+  forProvider:
+    type: A
+    ttl: 300
+    resourceRecords:
+      - value: {{ .Values.crossPlane.loadBalancerIp }}
+    zoneId: {{ .Values.crossPlane.zoneId }}
