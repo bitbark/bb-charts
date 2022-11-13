@@ -3,9 +3,9 @@ entries:
   bb-backstage:
   - apiVersion: v2
     appVersion: 0.0.3-do
-    created: "2022-11-12T23:59:51.417225107Z"
+    created: "2022-11-13T00:00:25.927795016Z"
     description: A Helm chart for DO Kubernetes
-    digest: b1a236f6f7fb6a100c7b3a6dd71ec7a2a9c9dcd1c4db4ac22c13c225a6b7cd28
+    digest: 2a35312e8e04dd90027fffe0629c484457b5c7957533f98f3aa9f7e76e03abe6
     name: bb-backstage
     type: application
     urls:
@@ -13,9 +13,9 @@ entries:
     version: 0.0.3-do
   - apiVersion: v2
     appVersion: 0.0.2
-    created: "2022-11-12T23:59:51.416835599Z"
+    created: "2022-11-13T00:00:25.927190104Z"
     description: A Helm chart for Kubernetes
-    digest: 81e07a9ecacbaf016005259c42270d0ab6f36e93ab62e347b034a6cae6cd1cf1
+    digest: ba612e6ee643cdf26937c91d493ec6f7cb59fe59f806b6423148038c98fe7ecf
     name: bb-backstage
     type: application
     urls:
@@ -23,9 +23,9 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2022-11-12T23:59:51.416372188Z"
+    created: "2022-11-13T00:00:25.925159164Z"
     description: A Helm chart for Kubernetes
-    digest: 49bbd14c8824f53ace94219e43514c760371089664d5ad48dce2d90ee2c80ac7
+    digest: 51bc9140cd40abaccc824d5236c8c13fcf4b0548cfda6625d646914f16f5e1f5
     name: bb-backstage
     type: application
     urls:
@@ -34,12 +34,12 @@ entries:
   bb-cluster:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2022-11-12T23:59:51.417754619Z"
+    created: "2022-11-13T00:00:25.928590031Z"
     description: A Helm chart for Kubernetes
-    digest: e5cba751b2c52d4f6e09c616e169c1dd51bca3d26c70bfb8315dcc2239c59b8f
+    digest: 046b19c33ebe010d4a1009cac9c1fa3a842a6f6d403f120c73cb81030605e67d
     name: bb-cluster
     type: application
     urls:
     - bb-cluster-0.0.1.tgz
     version: 0.0.1
-generated: "2022-11-12T23:59:51.415628571Z"
+generated: "2022-11-13T00:00:25.924659855Z"
