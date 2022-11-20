@@ -48,3 +48,16 @@ crossPlane:
   name: ""
   loadBalancerIp: ""
   zoneId: ""
+frontend:
+  secret:
+    api_endpoint: ""
+  crossPlane:
+    name: ""
+    loadBalancerIp: ""
+    zoneId: ""
+  deployment:
+    image:
+      name: ""
+      tag: ""
+  ingress:
+    host: ""
