@@ -1,6 +1,7 @@
 namespace: ""
-regCred:
-  dockerConfigJson: ""
+backend:
+  secret:
+    environment: ""
 deployment:
   image:
     name: ""
